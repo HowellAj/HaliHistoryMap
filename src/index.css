@@ -103,3 +103,48 @@ a { color: var(--accent); }
   border-left: 4px solid var(--accent);
   background: var(--surface);
 }
+
+.button--small { padding: 6px 12px; font-size: 0.875rem; }
+
+.map-page { position: relative; }
+.area-bar {
+  position: absolute;
+  top: 10px;
+  left: 56px;
+  right: 10px;
+  z-index: 1000; /* above Leaflet panes */
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.chip {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+.chip--active { background: var(--accent); border-color: var(--accent); color: var(--accent-text); }
+
+.item-popup h3 { margin: 8px 0 2px; font-size: 1rem; }
+.item-popup p { margin: 4px 0; }
+.item-meta, .item-credit { color: var(--muted); font-size: 0.8125rem; }
+.item-popup .button { margin-top: 8px; }
+.item-media { display: block; }
+/* Fixed box so the popup's size is known before the image loads (keeps auto-pan accurate). */
+.item-media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #e8e3d8;
+  border-radius: 4px;
+  display: block;
+}
+.item-media--video { position: relative; aspect-ratio: 16 / 9; }
+.item-media--video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 4px; }

@@ -1,9 +1,9 @@
 // Site-wide settings. Change these in one place.
 
-export const SITE_NAME = 'Halifax Then Map'
+export const SITE_NAME = 'HaliHistoryMap'
 
-// Where contributions and takedown requests go. Replace before launch.
-export const CONTACT_EMAIL = 'contribute@example.com'
+// Where contributions and takedown requests go.
+export const CONTACT_EMAIL = 'ajhowelldev@gmail.com'
 
 // Initial map view: downtown Halifax / the harbour.
 export const HALIFAX_CENTER = [44.6488, -63.5752]

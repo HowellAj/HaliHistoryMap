@@ -1,22 +1,37 @@
-import { useState } from 'react'
 import { CONTACT_EMAIL } from '../config.js'
 
-// Placeholder: V1 has no uploads. This form will build a pre-filled email
-// (mailto:) once the contact address is set; for now it only shows a notice.
-export default function ContributePage() {
-  const [submitted, setSubmitted] = useState(false)
+// V1 has no uploads: the form builds a pre-filled email and the contributor
+// attaches their photo in their own mail app.
+function buildMailto(form) {
+  const field = (name) => form.elements[name].value.trim()
+  const subject = `Photo submission: ${field('location')}`
+  const body = [
+    `Name: ${field('name')}`,
+    `Location: ${field('location')}`,
+    `Year: ${field('year')}`,
+    `Credit / source: ${field('credit')}`,
+    '',
+    'Description:',
+    field('description'),
+    '',
+    '(Please attach your photo to this email.)',
+  ].join('\n')
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+}
 
+export default function ContributePage() {
   function handleSubmit(e) {
     e.preventDefault()
-    setSubmitted(true)
+    window.location.href = buildMailto(e.currentTarget)
   }
 
   return (
     <div className="page page--narrow">
       <h1>Contribute a photo</h1>
       <p className="lead">
-        Have an old photo of Halifax? Tell us about it and email it in. Please
-        only send photos you took yourself or have permission to share.
+        Have an old photo of Halifax? Fill this in and we'll open an email for
+        you; attach the photo and send. Please only send photos you took
+        yourself or have permission to share.
       </p>
 
       <form className="contribute-form" onSubmit={handleSubmit}>
@@ -40,15 +55,13 @@ export default function ContributePage() {
           Source / credit
           <input type="text" name="credit" placeholder="e.g. family photo, archive name" />
         </label>
-        <button type="submit" className="button button--primary">Prepare email</button>
+        <button type="submit" className="button button--primary">Open email</button>
       </form>
 
-      {submitted && (
-        <p className="notice" role="status">
-          Email submissions aren't live yet. In the meantime, send your photo
-          and details to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
-        </p>
-      )}
+      <p className="notice">
+        Email not opening? Send your photo and details to{' '}
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+      </p>
     </div>
   )
 }
