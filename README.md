@@ -35,8 +35,8 @@ src/
   config.js                  site name, contact email, map center/bounds
   App.jsx                    routes
   data/items.json            map pins (photos and videos)
-  data/areas.json            jump-to-area buttons
-  data/items.js              loads and validates items
+  data/places.json           places (jump-to buttons, future place filter)
+  data/items.js              loads and validates items and places
   components/Layout.jsx      header, nav, footer
   components/HistoryMap.jsx  Leaflet map and markers
   components/ItemPopup.jsx   photo/video popup

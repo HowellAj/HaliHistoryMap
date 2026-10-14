@@ -41,7 +41,7 @@ export default function HistoryMap({ items = [], focus }) {
       <FlyTo focus={focus} />
       {items.map((item) => (
         <Marker key={item.id} position={[item.lat, item.lng]} title={item.title}>
-          {/* Top padding keeps popups clear of the area buttons over the map. */}
+          {/* Top padding keeps popups clear of the place buttons over the map. */}
           <Popup maxWidth={320} minWidth={260} autoPanPaddingTopLeft={[16, 64]}>
             <ItemPopup item={item} />
           </Popup>

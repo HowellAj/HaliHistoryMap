@@ -1,21 +1,23 @@
 import { useState } from 'react'
 import HistoryMap from '../components/HistoryMap.jsx'
-import { items, areas } from '../data/items.js'
+import { items, places } from '../data/items.js'
+
+const featuredPlaces = places.filter((place) => place.featured)
 
 export default function MapPage() {
   const [focus, setFocus] = useState(null)
 
   return (
     <div className="map-page">
-      <nav className="area-bar" aria-label="Jump to area">
-        {areas.map((area) => (
+      <nav className="area-bar" aria-label="Jump to place">
+        {featuredPlaces.map((place) => (
           <button
-            key={area.id}
+            key={place.id}
             type="button"
-            className={`chip ${focus?.id === area.id ? 'chip--active' : ''}`}
-            onClick={() => setFocus({ ...area })}
+            className={`chip ${focus?.id === place.id ? 'chip--active' : ''}`}
+            onClick={() => setFocus({ ...place })}
           >
-            {area.name}
+            {place.name}
           </button>
         ))}
       </nav>
