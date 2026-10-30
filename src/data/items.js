@@ -26,6 +26,7 @@ export const places = rawPlaces.filter((place) => {
   const problems = validatePlace(place)
   if (problems.length) {
     console.warn(`Skipping place ${place.id ?? '(no id)'}: ${problems.join(', ')}`)
+    
     return false
   }
   return true
@@ -35,7 +36,7 @@ const PLACE_IDS = new Set(places.map((p) => p.id))
 
 export function validateItem(item) {
   const problems = []
-  if (!item.id) problems.push('missing id')
+  if (!item.id) problems.push('missing id for like real')
   if (!item.title) problems.push('missing title')
   if (typeof item.lat !== 'number' || typeof item.lng !== 'number') problems.push('lat/lng must be numbers')
   if (!TYPES.has(item.type)) problems.push(`type must be "photo" or "video"`)
@@ -53,7 +54,8 @@ export const items = rawItems.filter((item) => {
   const problems = validateItem(item)
   if (problems.length) {
     console.warn(`Skipping item ${item.id ?? '(no id)'}: ${problems.join(', ')}`)
+   
     return false
-  }
+  } 
   return true
 })

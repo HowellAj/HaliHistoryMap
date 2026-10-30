@@ -1,0 +1,8 @@
+[
+  { "id": "barrington", "name": "Barrington Street", "kind": "street", "lat": 44.6466, "lng": -63.5738, "zoom": 16, "featured": true },
+  { "id": "water", "name": "Water Street", "kind": "street", "lat": 44.6478, "lng": -63.5703, "zoom": 16, "featured": true },
+  { "id": "spring-garden", "name": "Spring Garden Road", "kind": "street", "lat": 44.6431, "lng": -63.5792, "zoom": 16, "featured": true },
+  { "id": "gottingen", "name": "Gottingen Street", "kind": "street", "lat": 44.6565, "lng": -63.5862, "zoom": 16, "featured": true },
+  { "id": "citadel", "name": "Citadel Hill", "kind": "landmark", "lat": 44.6476, "lng": -63.5806, "zoom": 17, "featured": true },
+  { "id": "halifax-shopping-centre", "name": "Halifax Shopping Centre", "kind": "landmark", "lat": 44.6491, "lng": -63.6187, "zoom": 17, "featured": true }
+]
