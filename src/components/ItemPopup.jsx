@@ -39,7 +39,7 @@ export default function ItemPopup({ item }) {
       <Media item={item} />
       <h3>{item.title}</h3>
       <p className="item-meta">{formatYears(item)}</p>
-      {item.description && <p>{item.description}</p>}
+      {item.description && <p className="item-description">{item.description}</p>}
       <p className="item-credit">
         Credit: {item.credit} ·{' '}
         <a href={item.sourceUrl} target="_blank" rel="noopener noreferrer">View original</a>

@@ -13,7 +13,7 @@ breaking the map.
 | --- | --- | --- |
 | `id` | yes | Unique, e.g. `barrington-1920-01` |
 | `title` | yes | Short caption |
-| `lat`, `lng` | yes | Numbers, where the photographer stood |
+| `lat`, `lng` | yes | Numbers, where the photographer stood. Items with exactly the same `lat`/`lng` share one pin, whose popup pages through them oldest first |
 | `type` | yes | `"photo"` or `"video"` |
 | `imageUrl` | photos | Direct link to the image at its source (never copied into this repo) |
 | `embedUrl` | videos | An official embed link, e.g. `https://www.youtube.com/embed/<id>` |
