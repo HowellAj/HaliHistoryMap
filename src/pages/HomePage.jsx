@@ -30,6 +30,8 @@ export default function HomePage() {
           <p>Photos come from sources like the Halifax Municipal Archives, always credited and linked.</p>
         </article>
       </section>
+
+
     </div>
   )
 }
