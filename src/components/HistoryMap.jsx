@@ -7,9 +7,11 @@ import markerShadow from 'leaflet/dist/images/marker-shadow.png'
 import ItemPopup from './ItemPopup.jsx'
 import { HALIFAX_CENTER, DEFAULT_ZOOM, MAP_BOUNDS } from '../config.js'
 
-// Leaflet looks up its default marker images by URL at runtime, which breaks
-// once Vite bundles them. Point it at the bundled copies instead.
-L.Icon.Default.mergeOptions({
+// Use the bundled marker images as the default icon. Don't patch
+// L.Icon.Default instead: it prefixes every URL with an image folder it
+// guesses from leaflet.css, which mangles Vite's URLs in dev mode.
+L.Marker.prototype.options.icon = L.icon({
+  ...L.Icon.Default.prototype.options,
   iconUrl: markerIcon,
   iconRetinaUrl: markerIcon2x,
   shadowUrl: markerShadow,
